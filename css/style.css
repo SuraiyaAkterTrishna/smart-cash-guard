@@ -1,0 +1,16 @@
+#calculate-section{
+    background-color: #F8F8F8;
+    padding: 30px;
+}
+#calculate-button{
+    padding: 10px 50px;
+}
+.form-control{
+    background-color: #dbd5d59d;
+}
+.saving-balance{
+    margin-left: 5%;
+}
+#saving-button{
+    padding: 7px 70px;
+}
