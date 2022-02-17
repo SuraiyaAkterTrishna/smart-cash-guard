@@ -21,37 +21,37 @@
                 <div id="calculate-section" class="col-sm-6 text-center">
                     <h5 class="mb-3">Income</h5>
                     <div class="mb-3 row">
-                        <label for="income" class="col-sm-2 col-form-label">income: </label>
+                        <label for="income-amount" class="col-sm-2 col-form-label">income: </label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="income">
+                          <input type="text" class="form-control" id="income-amount">
                         </div>
                     </div>
                     <h5 class="my-3">Expenses</h5>
                     <div class="mb-3 row">
-                        <label for="food" class="col-sm-2 col-form-label">Food: </label>
+                        <label for="food-cost" class="col-sm-2 col-form-label">Food: </label>
                         <div class="col-sm-10">
-                          <input type="text"   class="form-control" id="food">
+                          <input type="text"   class="form-control" id="food-cost">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="rent" class="col-sm-2 col-form-label">Rent: </label>
+                        <label for="rent-cost" class="col-sm-2 col-form-label">Rent: </label>
                         <div class="col-sm-10">
-                          <input type="text"   class="form-control" id="rent">
+                          <input type="text"   class="form-control" id="rent-cost">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="clothes" class="col-sm-2 col-form-label">Clothes: </label>
+                        <label for="clothes-cost" class="col-sm-2 col-form-label">Clothes: </label>
                         <div class="col-sm-10">
-                          <input type="text"   class="form-control" id="clothes">
+                          <input type="text"   class="form-control" id="clothes-cost">
                         </div>
                     </div>
                     <button id="calculate-button" type="button" class="btn btn-success">Calculate</button>
                     <h5 class="my-3">Total Expenses: <span id="total-expenses">0</span></h5>
                     <h5 class="my-3">Balance: <span id="total-balance">0</span></h5>
                     <div class="row saving-balance align-items-center">
-                        <label for="save" class="col-sm-1 col-form-label">Save: </label>
+                        <label for="save-percentage" class="col-sm-1 col-form-label">Save: </label>
                         <div class="col-sm-4">
-                              <input type="text"   class="form-control" id="save">
+                              <input type="text"   class="form-control" id="save-percentage">
                         </div>
                         <div class="col-sm-1">
                             <span>%</span>
@@ -65,6 +65,13 @@
                 </div>
             </div>
         </section>
+        <div class="notify-section">
+            <p id="notify-income-amount" class="notify">❌ Income must be contain number, Please Enter a number!</p>
+            <p id="notify-food-cost" class="notify">❌ Food cost must be contain number, Please Enter a number!</p>
+            <p id="notify-rent-cost" class="notify">❌ Rent cost must be contain number, Please Enter a number!</p>
+            <p id="notify-clothes-cost" class="notify">❌ Clothes Cost must be contain number, Please Enter a number!</p>
+            <p id="notify-save-percentage" class="notify">❌ Save percentage must be contain number, Please Enter a number!</p>
+        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
