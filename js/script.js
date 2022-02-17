@@ -1,21 +1,24 @@
-
+// get all element id 
+function getElementId(id){
+    const elementId = document.getElementById(id);
+    return elementId;
+}
+// get all input value 
+function getInputValue(inputId){
+    const inputField = getElementId(inputId);
+    const inputAmount = parseFloat(inputField.value);
+    inputField.value = '';
+    return inputAmount;
+}
 document.getElementById("calculate-button").addEventListener("click",function(){
     // get food cost
-    const foodCostField = document.getElementById("food");
-    const foodCostAmount = parseFloat(foodCostField.value);
-    foodCostField.value = '';
+    const foodCostAmount = getInputValue('food');
     // get rent cost
-    const rentCostField = document.getElementById("rent");
-    const rentCostAmount = parseFloat(rentCostField.value);
-    rentCostField.value = '';
+    const rentCostAmount = getInputValue('rent');
     // get clothes cost
-    const clothesCostField = document.getElementById("clothes");
-    const clothesCostAmount = parseFloat(clothesCostField.value);
-    clothesCostField.value = '';
-    // get income cost
-    const incomeCostField = document.getElementById("income");
-    const incomeCostAmount = parseFloat(incomeCostField.value);
-    incomeCostField.value = '';
+    const clothesCostAmount = getInputValue('clothes');
+    // get income
+    const incomeAmount = getInputValue('income');
     // get total expenses
     const totalExpensesText = document.getElementById("total-expenses");
     // update total expenses
@@ -24,7 +27,7 @@ document.getElementById("calculate-button").addEventListener("click",function(){
     // get balance field
     const balanceField = document.getElementById('total-balance');
     // update balance amount
-    const totalBalance = incomeCostAmount - totalExpensesAmount;
+    const totalBalance = incomeAmount - totalExpensesAmount;
     balanceField.innerText = totalBalance;
 })
 document.getElementById('saving-button').addEventListener("click",function(){
@@ -32,9 +35,7 @@ document.getElementById('saving-button').addEventListener("click",function(){
     const balanceField = document.getElementById('total-balance');
     const totalBalance = parseFloat(balanceField.innerText);
     // get save percentage value
-    const saveInput = document.getElementById('save');
-    const savePercentage = parseFloat(saveInput.value);
-    saveInput.value = '';
+    const savePercentage = getInputValue('save');
     // get saving amount field
     const savingField = document.getElementById('saving-amount');
     // update saving amount
