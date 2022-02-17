@@ -5,11 +5,17 @@ function getElement(id){
 }
 // error handling
 function verifyInputValue(id,amount) {
-    const errorMessage = getElement('notify-'+id);
+    const errorMessageForNumber = getElement('error-valid-number-'+id);
+    const errorMessageForValidNumber = getElement('error-negative-number-'+id);
     if (isNaN(amount)) {
-        errorMessage.style.display = 'block';
+        errorMessageForNumber.style.display = 'block';
+    } else if (amount < 0) {
+        if (errorMessageForNumber.style.display = 'none') {
+            errorMessageForValidNumber.style.display = 'block';
+        }
     } else {
-        errorMessage.style.display = 'none';
+        errorMessageForNumber.style.display = 'none';
+        errorMessageForValidNumber.style.display = 'none';
         return amount;
     }
 }
@@ -17,13 +23,18 @@ function verifyInputValue(id,amount) {
 function getInputValue(inputId){
     const inputField = getElement(inputId);
     const inputAmount = parseFloat(inputField.value);
-    inputField.value = '';
     return verifyInputValue(inputId,inputAmount);
 }
 // update balance 
 function updateBalance(income, expense, balanceField){
-    const total = income - expense;
-    balanceField.innerText = total;
+    const errorTotalBalance = getElement('error-total-balance');
+    if (income>expense) {
+        errorTotalBalance.style.display = 'none';
+        const total = income - expense;
+        balanceField.innerText = total.toFixed(2);
+    } else {
+        errorTotalBalance.style.display = 'block';
+    }
 }
 document.getElementById("calculate-button").addEventListener("click",function(){
     // get food cost
@@ -36,11 +47,11 @@ document.getElementById("calculate-button").addEventListener("click",function(){
     const incomeAmount = getInputValue('income-amount');
     // get total expenses
     const totalExpensesText = getElement('total-expenses');
+    // get balance field
+    const balanceField = getElement('total-balance');
     // update total expenses
     const totalExpensesAmount = foodCostAmount + rentCostAmount +clothesCostAmount;
     totalExpensesText.innerText = totalExpensesAmount;
-    // get balance field
-    const balanceField = getElement('total-balance');
     // update remaining balance
     updateBalance(incomeAmount, totalExpensesAmount, balanceField);
 });
@@ -52,11 +63,11 @@ document.getElementById('saving-button').addEventListener("click",function(){
     const savePercentage = getInputValue('save-percentage');
     // get saving amount field
     const savingField = getElement('saving-amount');
+    // get remaining balance
+    const remainingBalanceField = getElement('remaining-balance');
     // update saving amount
     const savingAmount = (totalBalance / 100) * savePercentage;
     savingField.innerText = savingAmount;
-    // get remaining balance
-    const remainingBalanceField = getElement('remaining-balance');
     // update remaining balance after saving
     updateBalance(totalBalance, savingAmount, remainingBalanceField);
 })

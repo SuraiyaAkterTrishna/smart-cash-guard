@@ -64,14 +64,24 @@
                     <h5 class="mb-3">Remaining Balance: <span id="remaining-balance">0</span></h5>
                 </div>
             </div>
+            <div class="notify-section">
+                <!-- Error message for valid number -->
+                <p id="error-valid-number-income-amount" class="notify">❌ Income must be contain number, Please Enter a number!</p>
+                <p id="error-valid-number-food-cost" class="notify">❌ Food cost must be contain number, Please Enter a number!</p>
+                <p id="error-valid-number-rent-cost" class="notify">❌ Rent cost must be contain number, Please Enter a number!</p>
+                <p id="error-valid-number-clothes-cost" class="notify">❌ Clothes Cost must be contain number, Please Enter a number!</p>
+                <p id="error-valid-number-save-percentage" class="notify">❌ Save percentage must be contain number, Please Enter a number!</p>
+                <!-- Error message for negative number -->
+                <p id="error-negative-number-income-amount" class="notify">❌ Income must be contain positive number, Please Enter positive number!</p>
+                <p id="error-negative-number-food-cost" class="notify">❌ Food cost must be contain positive number, Please Enter positive number!</p>
+                <p id="error-negative-number-rent-cost" class="notify">❌ Rent cost must be contain positive number, Please Enter positive number!</p>
+                <p id="error-negative-number-clothes-cost" class="notify">❌ Clothes Cost must be contain positive number, Please Enter positive number!</p>
+                <p id="error-negative-number-save-percentage" class="notify">❌ Save percentage must be contain positive number, Please Enter positive number!</p>
+                <!-- Error message for total balance -->
+                <p id="error-total-balance" class="notify">❌ You haven't sufficient balance, Please earn more!</p>
+            </div>
         </section>
-        <div class="notify-section">
-            <p id="notify-income-amount" class="notify">❌ Income must be contain number, Please Enter a number!</p>
-            <p id="notify-food-cost" class="notify">❌ Food cost must be contain number, Please Enter a number!</p>
-            <p id="notify-rent-cost" class="notify">❌ Rent cost must be contain number, Please Enter a number!</p>
-            <p id="notify-clothes-cost" class="notify">❌ Clothes Cost must be contain number, Please Enter a number!</p>
-            <p id="notify-save-percentage" class="notify">❌ Save percentage must be contain number, Please Enter a number!</p>
-        </div>
+        
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
