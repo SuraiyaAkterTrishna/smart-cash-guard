@@ -3,7 +3,13 @@ function getElement(id){
     const elementId = document.getElementById(id);
     return elementId;
 }
-// error handling
+// get all input value
+function getInputValue(inputId){
+    const inputField = getElement(inputId);
+    const inputAmount = parseFloat(inputField.value);
+    return verifyInputValue(inputId,inputAmount);
+}
+// verifying all input value
 function verifyInputValue(id,amount) {
     const errorMessageForNumber = getElement('error-valid-number-'+id);
     const errorMessageForValidNumber = getElement('error-negative-number-'+id);
@@ -19,21 +25,16 @@ function verifyInputValue(id,amount) {
         return amount;
     }
 }
-// get all input value 
-function getInputValue(inputId){
-    const inputField = getElement(inputId);
-    const inputAmount = parseFloat(inputField.value);
-    return verifyInputValue(inputId,inputAmount);
-}
-// update balance 
+// calculate balance and error handling for total expenses & saving amount
 function updateBalance(income, expense, balanceField){
-    const errorTotalBalance = getElement('error-total-balance');
-    if (income>expense) {
+    const idName = balanceField.getAttribute('id');
+    const errorTotalBalance = getElement('error-'+idName);
+    if (income<expense) {
+        errorTotalBalance.style.display = 'block';
+    } else {
         errorTotalBalance.style.display = 'none';
         const total = income - expense;
         balanceField.innerText = total.toFixed(2);
-    } else {
-        errorTotalBalance.style.display = 'block';
     }
 }
 document.getElementById("calculate-button").addEventListener("click",function(){
@@ -56,6 +57,8 @@ document.getElementById("calculate-button").addEventListener("click",function(){
     updateBalance(incomeAmount, totalExpensesAmount, balanceField);
 });
 document.getElementById('saving-button').addEventListener("click",function(){
+    // get income
+    const incomeAmount = getInputValue('income-amount');
     // get total balance
     const balanceField = getElement('total-balance');
     const totalBalance = parseFloat(balanceField.innerText);
@@ -66,7 +69,7 @@ document.getElementById('saving-button').addEventListener("click",function(){
     // get remaining balance
     const remainingBalanceField = getElement('remaining-balance');
     // update saving amount
-    const savingAmount = (totalBalance / 100) * savePercentage;
+    const savingAmount = (incomeAmount / 100) * savePercentage;
     savingField.innerText = savingAmount;
     // update remaining balance after saving
     updateBalance(totalBalance, savingAmount, remainingBalanceField);

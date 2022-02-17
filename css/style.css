@@ -1,3 +1,4 @@
+/* calculate area */
 #calculate-section{
     background-color: #F8F8F8;
     padding: 30px;
@@ -8,12 +9,14 @@
 .form-control{
     background-color: #dbd5d59d;
 }
+/* saving area */
 .saving-balance{
     margin-left: 5%;
 }
 #saving-button{
     padding: 6px 60px;
 }
+/* error message area */
 .notify {
     color: #fff;
     text-align: center;
